@@ -46,7 +46,9 @@ public class TestPortals {
 
     @Test
     public void testCreateNewPortal() {
+        for(int i = 0; i < 5; i++){
         portalPage.addNewPortal();
+        }
     }
 
     @Test
@@ -94,4 +96,9 @@ public class TestPortals {
         portalPage.editLastPortal();
         portalPage.deleteLastPortal();
     }
+    
+//    @Test
+//    public void testEnableLastRowPortal(){
+//        portalPage.enableLastRowPortal();
+//    }
 }

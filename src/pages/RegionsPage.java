@@ -36,6 +36,11 @@ public class RegionsPage extends Page {
         WebElement deleteButton = row.findElement(By.cssSelector("button[title='Delete']"));
         deleteButton.click();
     }
+    
+    public void clickOnLogOutOption(){
+        clickOnElement(By.xpath("//*[@id=\"app-navbar-collapse\"]/ul[2]"));
+        clickOnElement(By.xpath("//*[@id=\"app-navbar-collapse\"]/ul[2]/li/ul/li/a"));
+    }
 
     private void sendTextOnTitleFieldWithClear(WebDriver driver) {
         WebElement titleField = driver.findElement(By.id("title"));
@@ -57,8 +62,8 @@ public class RegionsPage extends Page {
     }
 
     private WebElement chooseLastRow() {
-        List<WebElement> rows = getRowsFromTable();
-        WebElement lastRow = rows.get(rows.size() - 1);
+        List<WebElement> rowsss = getRowsFromTable();
+        WebElement lastRow = rowsss.get(rowsss.size() - 1);
         return lastRow;
     }
 
@@ -67,6 +72,7 @@ public class RegionsPage extends Page {
         WebElement randomRow = rows.get(Helper.getRandomInteger(rows.size()));
         return randomRow;
     }
+
 
     public void editFirstRegion() {
         WebElement firstRow = chooseFirstRow();

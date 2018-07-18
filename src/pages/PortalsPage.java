@@ -90,6 +90,20 @@ public class PortalsPage extends Page {
         WebElement randomRow = rows.get(Helper.getRandomInteger(rows.size()));
         return randomRow;
     }
+    
+    private void clickOnEnableDisableElement(WebElement row){
+        WebElement button = row.findElement(By.cssSelector("button[title='Disable']"));
+        button.click();
+    }
+    
+    private void clickOnDisableElement(WebElement row){
+        WebElement button1 = row.findElement(By.cssSelector("button[title='Enable']"));
+        button1.click();
+    }
+    
+    private void confirmClickOnEnDiElement(){
+        clickOnElement(By.xpath("//*[@id=\"portalDisableDialog\"]/div/div/div[3]/button[2]"));
+    }
 
     public void editFirstPortal() {
         WebElement firstRow = chooseFirstRow();
@@ -134,5 +148,17 @@ public class PortalsPage extends Page {
         WebElement randomRow = chooseRandomRow();
         clickOnDeletePortalButton(randomRow);
         clickOnSubmitDeleteButton();
+    }
+    
+    public void disableLastRowPortal(){
+        WebElement enableLast = chooseLastRow();
+        clickOnEnableDisableElement(enableLast);
+        confirmClickOnEnDiElement();
+    }
+    
+    public void enableLastRowPortal(){
+        WebElement disableLast = chooseLastRow();
+        clickOnDisableElement(disableLast);
+        confirmClickOnEnDiElement();
     }
 }

@@ -33,7 +33,7 @@ public class TestRegions {
     @AfterClass
     public static void tearDownClass() throws InterruptedException {
         Thread.sleep(2000);
-        loginPage.quitDriver();
+//        loginPage.quitDriver();
     }
 
     @Before
@@ -88,4 +88,9 @@ public class TestRegions {
     public void testDeleteRandomRegion(){
         regionsPage.deleteRandomRegion();
     }
+    
+//    @Test
+//    public void testLogOutOption(){
+//        regionsPage.clickOnLogOutOption();
+//    }
 }
